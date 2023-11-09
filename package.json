@@ -1,5 +1,5 @@
 {
-  "name": "Express.js",
+  "name": "Errror-Handling-in-Node.js-file-operations",
   "version": "1.0.0",
   "description": "Starter package.json template",
   "main": "main.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acciojob/Express.js.git"
+    "url": "git+https://github.com/acciojob/Errror-Handling-in-Node.js-file-operations.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/acciojob/Express.js/issues"
+    "url": "https://github.com/acciojob/Errror-Handling-in-Node.js-file-operations/issues"
   },
-  "homepage": "https://github.com/acciojob/Express.js#readme",
+  "homepage": "https://github.com/acciojob/Errror-Handling-in-Node.js-file-operations#readme",
   "devDependencies": {
     "jest": "^29.5.0"
   },
