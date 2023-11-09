@@ -1,9 +1,34 @@
-const express = require('express');
-const app = express();
-app.use(express.json());
+const fs = require('fs');
 
-// Define the routes and implement the CRUD operations for the books collection
+function readFileContents(filePath, callback) {
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      switch (err.code) {
+        case 'ENOENT':
+          callback('File not found. Please provide a valid file path.');
+          break;
+        case 'EACCES':
+          callback('Permission denied. Unable to read the file.');
+          break;
+        default:
+          callback(`An error occurred while reading the file: ${err.message}`);
+      }
+    } else {
+      callback(null, data);
+    }
+  });
+}
 
-const server = app.listen(3000, () => {
-  console.log('Server listening on port 3000');
-});
+// CLI-specific logic
+if (require.main === module) {
+  const filePath = process.argv[2];
+  readFileContents(filePath, (error, data) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('File contents:', data);
+    }
+  });
+}
+
+module.exports = { readFileContents }; // Export for testing purposes
